@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Meu Amor</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #6a2c91, #f5d97a);
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.tela {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  width: 280px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 35px;
+  border-radius: 12px;
+  border: none;
+  background: #ffd700;
+  color: #5b2c83;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+video {
+  width: 360px;
+  border-radius: 20px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.aviso {
+  font-size: 0.95em;
+  opacity: 0.85;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.galeria img {
+  width: 220px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+#videos, #frase, #site {
+  display: none;
+}
+
+.box {
+  background: rgba(0,0,0,0.3);
+  border-radius: 15px;
+  padding: 15px 20px;
+  min-width: 110px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+.box span {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- CHARADA -->
+<div id="login" class="tela">
+  <h1>✨ Charada do Amor ✨</h1>
+  <p>
+    Uma princesa seguiu lanternas.<br>
+    Outra acreditou nos sonhos mesmo na lama.<br>
+    Escreva o nome dos dois filmes.
+  </p>
+  <input id="senha" placeholder="Resposta">
+  <button onclick="verificar()">Continuar</button>
+</div>
+
+<!-- VIDEOS -->
+<div id="videos" class="tela">
+  <video id="v1" muted onclick="ativarSom(this)">
+    <source src="video/video.mp4" type="video/mp4">
+  </video>
+
+  <video id="v2" muted style="display:none" onclick="ativarSom(this)">
+    <source src="video/video3.mp4" type="video/mp4">
+  </video>
+
+  <div class="aviso">🔊 Clique no vídeo para ativar o som</div>
+</div>
+
+<!-- FRASE -->
+<div id="frase" class="tela">
+  <h1>Você é a minha Evangeline ✨</h1>
+  <button onclick="entrarSite()">Continuar</button>
+</div>
+
+<!-- SITE -->
+<div id="site">
+
+<section>
+  <h1>Meu Amor 🤍</h1>
+  <p>Esse site é só nosso. Um cantinho pra guardar tudo aquilo que faz o coração bater mais forte quando penso em você.</p>
+</section>
+
+<section>
+  <h2>Lembra?</h2>
+
+  <p>Lembra quando demos o nosso primeiro beijo na esquina da pracinha com medo de alguém ver?</p>
+  <p>Lembra quando ficamos deitadinhos no palco assistindo o filme que você nem gostou, mas assistiu comigo?</p>
+  <p>Lembra quando saímos pela primeira vez, os dois cheios de vergonha, só comemos rapidinho?</p>
+  <p>Lembra quando falamos nosso primeiro “eu te amo”? Que sensação maravilhosa ouvir isso.</p>
+  <p>Lembra da nossa viagem para o sítio da sua família? Foi perfeito passar aquele final de semana ao seu lado.</p>
+  <p>Lembra do nosso primeiro abraço? Foi perfeito, meu amor.</p>
+</section>
+
+<section class="galeria">
+  <h2>Nossos Momentos 📸</h2>
+  <img src="fotos/foto1.jpg">
+  <img src="fotos/foto2.jpg">
+  <img src="fotos/foto3.jpg">
+  <img src="fotos/foto4.jpg">
+  <img src="fotos/foto5.jpg">
+  <img src="fotos/foto6.jpg">
+  <img src="fotos/foto7.jpg">
+  <img src="fotos/foto8.jpg">
+  <img src="fotos/foto9.jpg">
+  <img src="fotos/foto10.jpg">
+</section>
+
+<section>
+  <h2>Um Vídeo Nosso 💛</h2>
+  <video controls>
+    <source src="video/lembranca.mp4" type="video/mp4">
+  </video>
+</section>
+
+<section>
+  <h2>Nossa Trilha Sonora 🎶</h2>
+  <iframe style="border-radius:12px"
+    src="https://open.spotify.com/embed/playlist/0GKNsELBWY6QhXG5dWOUo7"
+    width="80%" height="380" frameborder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+  </iframe>
+</section>
+
+<section>
+  <h2>⏳ Tempo juntos</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:15px;">
+    <div class="box"><span id="anos">0</span>Anos</div>
+    <div class="box"><span id="meses">0</span>Meses</div>
+    <div class="box"><span id="dias">0</span>Dias</div>
+    <div class="box"><span id="horas">0</span>Horas</div>
+    <div class="box"><span id="minutos">0</span>Min</div>
+    <div class="box"><span id="segundos">0</span>Seg</div>
+  </div>
+</section>
+
+<section>
+  <p style="max-width:700px; margin:auto; font-size:1.2em; line-height:1.6;">
+    Meu amor, nosso primeiro Natal juntos é um presente de Deus pra minha vida. Passar datas importantes ao seu lado faz tudo ficar mais leve. Você me completa em cada detalhe, até no jeito de levantar a sobrancelha. Cada segundo com você é especial. Tem dias que eu só quero ir pra casa… e a minha casa é você. Obrigado por ser meu abrigo, minha paz e meu melhor lugar no mundo. Eu te amo muito, meu amor 🤍
+  </p>
+</section>
+
+</div>
+
+<script>
+const senhaCorreta = "enrolados e a princesa e o sapo";
+
+function verificar() {
+  const senha = document.getElementById("senha").value.toLowerCase().trim();
+  if (senha === senhaCorreta) {
+    login.style.display = "none";
+    videos.style.display = "flex";
+    tocarVideos();
+  } else alert("Ainda não é essa a magia ✨");
+}
+
+function tocarVideos() {
+  v1.play();
+  v1.onended = () => {
+    v1.style.display = "none";
+    v2.style.display = "block";
+    v2.play();
+  };
+  v2.onended = () => {
+    videos.style.display = "none";
+    frase.style.display = "flex";
+  };
+}
+
+function ativarSom(v) {
+  v.muted = false;
+  v.play();
+}
+
+function entrarSite() {
+  frase.style.display = "none";
+  site.style.display = "block";
+}
+
+function atualizarTempo() {
+  const inicio = new Date(2025, 2, 27, 15, 30);
+  const agora = new Date();
+
+  let anos = agora.getFullYear() - inicio.getFullYear();
+  let meses = agora.getMonth() - inicio.getMonth();
+  let dias = agora.getDate() - inicio.getDate();
+
+  if (dias < 0) {
+    meses--;
+    dias += new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+  }
+  if (meses < 0) {
+    anos--;
+    meses += 12;
+  }
+
+  const diff = agora - inicio;
+  anos = Math.max(0, anos);
+  meses = Math.max(0, meses);
+
+  anosEl.innerText = anos;
+  mesesEl.innerText = meses;
+  diasEl.innerText = dias;
+  horas.innerText = Math.floor(diff / 3600000) % 24;
+  minutos.innerText = Math.floor(diff / 60000) % 60;
+  segundos.innerText = Math.floor(diff / 1000) % 60;
+}
+
+const anosEl = document.getElementById("anos");
+const mesesEl = document.getElementById("meses");
+const diasEl = document.getElementById("dias");
+const horas = document.getElementById("horas");
+const minutos = document.getElementById("minutos");
+const segundos = document.getElementById("segundos");
+
+setInterval(atualizarTempo, 1000);
+atualizarTempo();
+</script>
+
+</body>
+  </html>
